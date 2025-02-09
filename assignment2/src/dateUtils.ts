@@ -1,8 +1,8 @@
-import { addDays, addMonths, addWeeks, addYears, addSeconds, addMinutes, isBefore, isSameDay as isSameDayFn, isWithinInterval } from "date-fns";
+import { addDays, addMonths, addWeeks, addYears, addSeconds, addMinutes, isBefore, isSameDay as isSameDayFn, isWithinInterval, getYear } from "date-fns";
 import { DATE_UNIT_TYPES } from "./constants";
 
 export function getCurrentYear(): number {
-  return new Date().getFullYear();
+  return getYear(new Date());
 }
 
 export function add(date: Date, number: number, type: DATE_UNIT_TYPES = DATE_UNIT_TYPES.DAYS): Date {
