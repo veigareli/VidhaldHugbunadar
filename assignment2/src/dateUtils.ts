@@ -1,11 +1,26 @@
-import { addDays, addMonths, addWeeks, addYears, addSeconds, addMinutes, isBefore, isSameDay as isSameDayFn, isWithinInterval, getYear } from "date-fns";
-import { DATE_UNIT_TYPES } from "./constants";
+import {
+  addDays,
+  addMonths,
+  addWeeks,
+  addYears,
+  addSeconds,
+  addMinutes,
+  isBefore,
+  isSameDay as isSameDayFn,
+  isWithinInterval,
+  getYear,
+} from 'date-fns';
+import { DATE_UNIT_TYPES } from './constants';
 
 export function getCurrentYear(): number {
   return getYear(new Date());
 }
 
-export function add(date: Date, number: number, type: DATE_UNIT_TYPES = DATE_UNIT_TYPES.DAYS): Date {
+export function add(
+  date: Date,
+  number: number,
+  type: DATE_UNIT_TYPES = DATE_UNIT_TYPES.DAYS
+): Date {
   switch (type) {
     case DATE_UNIT_TYPES.SECONDS:
       return addSeconds(date, number);
@@ -20,7 +35,7 @@ export function add(date: Date, number: number, type: DATE_UNIT_TYPES = DATE_UNI
     case DATE_UNIT_TYPES.YEARS:
       return addYears(date, number);
     default:
-      throw new Error("Invalid date unit type");
+      throw new Error('Invalid date unit type');
   }
 }
 
