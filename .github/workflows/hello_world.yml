@@ -33,9 +33,3 @@ jobs:
 
       - name: Run Prettier Check
         run: npm run prettier-check
-
-      - name: Publish package
-        if: github.event_name == 'push'
-        run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
