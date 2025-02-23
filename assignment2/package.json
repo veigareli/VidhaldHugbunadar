@@ -2,7 +2,10 @@
   "name": "assignment-2-testing",
   "version": "1.0.0",
   "description": "",
-  "type": "module",
+  "type": "module",  
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "scripts": {
     "test": "vitest",
     "lint": "eslint .",
@@ -14,9 +17,6 @@
   "dependencies": {
     "date-fns": "^4.1.0",
     "moment": "^2.29.4"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",
