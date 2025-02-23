@@ -2,7 +2,7 @@
   "name": "assignment-2-testing",
   "version": "1.0.0",
   "description": "",
-  "type": "module",  
+  "type": "module",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   },
