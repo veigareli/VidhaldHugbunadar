@@ -12,16 +12,19 @@ export default {
   create(context) {
     return {
       FunctionDeclaration(node) {
-        const name = node.id.name;
-        if (!/^[a-z][a-zA-Z0-9]*$/.test(name)) {
-          context.report({
-            node,
-            message: 'Function name should be in camelCase.',
-            fix(fixer) {
-              const camelName = name.charAt(0).toLowerCase() + name.slice(1);
-              return fixer.replaceText(node.id, camelName);
-            },
-          });
+        if (node.id && node.id.name) {
+          const functionName = node.id.name;
+          if (!/^[a-z][a-zA-Z0-9]*$/.test(functionName)) {
+            const fixedName =
+              functionName.charAt(0).toLowerCase() + functionName.slice(1);
+            context.report({
+              node: node.id,
+              message: 'Function name should be in camelCase.',
+              fix(fixer) {
+                return fixer.replaceText(node.id, fixedName);
+              },
+            });
+          }
         }
       },
     };
