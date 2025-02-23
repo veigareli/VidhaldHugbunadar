@@ -5,11 +5,14 @@ on:
     branches: [main]
   pull_request:
     branches: [main]
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    defaults:
+      run:
+        working-directory: assignment2
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -32,7 +35,7 @@ jobs:
         run: npm run prettier-check
 
       - name: Publish package
-        if: env.NODE_AUTH_TOKEN != ''
+        if: github.event_name == 'push'
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
